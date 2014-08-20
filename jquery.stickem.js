@@ -3,9 +3,9 @@
  * @author Trevor Davis
  * @version 1.4.1
  *
- *	$('.container').stickem({
- *		item: '.stickem',
- *		container: '.stickem-container',
+ *	$('.container').seakleng({
+ *		item: '.seakleng',
+ *		container: '.seakleng-container',
  *		stickClass: 'stickit',
  *		endStickClass: 'stickit-end',
  *		offset: 0,
@@ -16,18 +16,18 @@
 
 ;(function($, window, document, undefined) {
 
-	var Stickem = function(elem, options) {
+	var Seakleng = function(elem, options) {
 		this.elem = elem;
 		this.$elem = $(elem);
 		this.options = options;
-		this.metadata = this.$elem.data("stickem-options");
+		this.metadata = this.$elem.data("seakleng-options");
 		this.$win = $(window);
 	};
 
-	Stickem.prototype = {
+	Seakleng.prototype = {
 		defaults: {
-			item: '.stickem',
-			container: '.stickem-container',
+			item: '.seakleng',
+			container: '.seakleng-container',
 			stickClass: 'stickit',
 			endStickClass: 'stickit-end',
 			offset: 0,
@@ -52,15 +52,15 @@
 		bindEvents: function() {
 			var _self = this;
 
-			_self.$win.on('scroll.stickem', $.proxy(_self.handleScroll, _self));
-			_self.$win.on('resize.stickem', $.proxy(_self.handleResize, _self));
+			_self.$win.on('scroll.seakleng', $.proxy(_self.handleScroll, _self));
+			_self.$win.on('resize.seakleng', $.proxy(_self.handleResize, _self));
 		},
 
 		destroy: function() {
 			var _self = this;
 
-			_self.$win.off('scroll.stickem');
-			_self.$win.off('resize.stickem');
+			_self.$win.off('scroll.seakleng');
+			_self.$win.off('resize.seakleng');
 		},
 
 		getItem: function(index, element) {
@@ -161,18 +161,18 @@
 		}
 	};
 
-	Stickem.defaults = Stickem.prototype.defaults;
+	Seakleng.defaults = Seakleng.prototype.defaults;
 
-	$.fn.stickem = function(options) {
+	$.fn.seakleng = function(options) {
 		//Create a destroy method so that you can kill it and call it again.
 		this.destroy = function() {
 			this.each(function() {
-				new Stickem(this, options).destroy();
+				new Seakleng(this, options).destroy();
 			});
 		};
 
 		return this.each(function() {
-			new Stickem(this, options).init();
+			new Seakleng(this, options).init();
 		});
 	};
 
